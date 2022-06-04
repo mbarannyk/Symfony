@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+    nginx:
+        build: ./Docker/nginx
+        container_name: symfony_nginx
+        ports:
+          - "80:80"
+        volumes:
+          - ./logs/nginx:/var/log/nginx:cached
+          - ./project:/var/www:cached
+          - ./Docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        links:
+            - php
+
+    php:
+        build:
+            context: ./Docker/php-fpm
+        container_name: symfony_php-fpm
+        volumes:
+            - ./project:/var/www:cached
+#            - ./logs/symfony:/var/www/var/log:cached
+        links:
+            - mysql
+
+    mysql:
+        image: mysql:8.0.29
+        container_name: symfony_mysql
+        restart: always
+        ports:
+          - "3306:3306"
+        environment:
+          MYSQL_ROOT_PASSWORD: root
