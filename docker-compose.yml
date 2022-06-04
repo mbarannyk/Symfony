@@ -19,7 +19,7 @@ services:
         container_name: symfony_php-fpm
         volumes:
             - ./project:/var/www:cached
-#            - ./logs/symfony:/var/www/var/log:cached
+            - ./logs/symfony:/var/www/var/log:cached
         links:
             - mysql
 
