@@ -1,0 +1,27 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}
+    <title>Display product</title>
+{% endblock %}
+
+{% block table %}
+    <h4 align="center" style="color:Grey"> Product </h4>
+    <table class="table table-striped">
+      <thead class="table-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Season</th>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">{{ product.name }}</th>
+        <td>{{ product.price }}</td>
+        <td>{{ product.season }}</td>
+      </tr>
+      </tbody>
+    </table>
+{% endblock %}
+
+
+    

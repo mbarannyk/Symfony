@@ -1,0 +1,16 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}
+    <title>Edit product</title>
+{% endblock %}
+
+{% block table %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+{{ form_start(form) }}
+
+    <h2 align="center" style="color:Grey">Edit product</h2>
+
+    {{ form_row(form.save, { 'label': 'Edit the product' }) }}
+
+{{ form_end(form) }}
+{% endblock %}
